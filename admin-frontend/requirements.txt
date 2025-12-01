@@ -1,0 +1,5 @@
+react-hot-toast
+react-toastify
+react-router-dom
+spinners
+react-icons
