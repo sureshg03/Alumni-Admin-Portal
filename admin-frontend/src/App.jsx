@@ -15,7 +15,7 @@ import SuccessStories from './pages/SuccessStories';
 import Feedback from "./pages/Feedback";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = "http://144.24.136.5";
 axios.defaults.withCredentials = true;
 
 function App() {

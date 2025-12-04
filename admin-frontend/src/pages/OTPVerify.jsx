@@ -28,7 +28,7 @@ function OTPVerify({ email, setStep }) {
 
   const resendOtp = async () => {
     try {
-      await axios.post("http://localhost:8000/api/send_otp/", { email });
+      await axios.post("/api/send_otp/", { email });
       setTimer(300);
       toast.success("OTP sent successfully", { transition: Slide });
     } catch {
@@ -39,7 +39,7 @@ function OTPVerify({ email, setStep }) {
   const handleVerify = async () => {
     try {
       const joinedOtp = otp.join("");
-      const res = await axios.post("http://localhost:8000/api/verify_otp/", {
+      const res = await axios.post("/api/verify_otp/", {
         email,
         otp: joinedOtp,
       });

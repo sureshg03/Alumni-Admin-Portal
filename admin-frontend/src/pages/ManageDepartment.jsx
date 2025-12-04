@@ -12,7 +12,7 @@ const ManageDepartment = () => {
     // Fetch departments from the backend
     const fetchDepartments = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/get-departments/', {
+        const response = await axios.get('/api/get-departments/', {
           headers: {
             'Content-Type': 'application/json',
           },

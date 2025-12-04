@@ -13,7 +13,7 @@ function ForgotPassword({ setStep, setEmail }) {
   useEffect(() => {
     const fetchEmail = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/get-logged-in-admin-email/");
+        const res = await axios.get("/api/get-logged-in-admin-email/");
         if (res.data.email) {
           setInputEmail(res.data.email);
         }
@@ -27,7 +27,7 @@ function ForgotPassword({ setStep, setEmail }) {
   const handleSendOtp = async () => {
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:8000/api/send_otp/", {
+      const res = await axios.post("/api/send_otp/", {
         email: inputEmail,
       });
       toast.success(res.data.message, { transition: Slide });

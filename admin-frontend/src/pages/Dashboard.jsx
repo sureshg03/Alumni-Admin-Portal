@@ -48,13 +48,13 @@ const DepartmentPieChart = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const studentResponse = await axios.get('http://localhost:8000/api/department-student-counts/', {
+        const studentResponse = await axios.get('/api/department-student-counts/', {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });
         const studentData = studentResponse.data;
 
-        const statsResponse = await axios.get('http://localhost:8000/api/dashboard-stats/', {
+        const statsResponse = await axios.get('/api/dashboard-stats/', {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });
@@ -237,7 +237,7 @@ const ActiveStudentsBarChart = () => {
   useEffect(() => {
     const fetchActiveStudentCounts = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/active-student-counts/', {
+        const response = await axios.get('/api/active-student-counts/', {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });
@@ -497,7 +497,7 @@ const AlumniStatusChart = () => {
   useEffect(() => {
     const fetchAlumniStatus = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/alumni-status-counts/', {
+        const response = await axios.get('/api/alumni-status-counts/', {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });
@@ -700,7 +700,7 @@ const JobCountBarChart = () => {
   useEffect(() => {
     const fetchJobCounts = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/job-counts/', {
+        const response = await axios.get('/api/job-counts/', {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });
@@ -1022,7 +1022,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchAdminData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/current-user/', {
+        const response = await axios.get('/api/current-user/', {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });
@@ -1046,7 +1046,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchDashboardStats = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/dashboard-stats/', {
+        const response = await axios.get('/api/dashboard-stats/', {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });
@@ -1075,7 +1075,7 @@ const Dashboard = () => {
     try {
       const userEmail = localStorage.getItem('userEmail');
       if (userEmail) {
-        await axios.post('http://localhost:8000/api/logout/', { email: userEmail }, {
+        await axios.post('/api/logout/', { email: userEmail }, {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });
