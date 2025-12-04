@@ -3,10 +3,9 @@ from django.db import models
 from django.utils import timezone
 import datetime
 
-from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
-from django.db import models
-from django.utils import timezone
-import datetime
+
+def default_expires_at():
+    return timezone.now() + datetime.timedelta(days=365)
 
 class AdminUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -85,7 +84,7 @@ class Department(models.Model):
 
 class Degree(models.Model):
     department = models.ForeignKey(Department, related_name='degrees', on_delete=models.CASCADE)
-    degree_name = models.CharField(max_length=100, db_column='degree_name')  # Map to table column
+    degree_name = models.CharField(max_length=100, db_column='degree_name', default='')  # Map to table column
     duration_years = models.IntegerField()
 
     def __str__(self):
@@ -96,15 +95,15 @@ class Degree(models.Model):
 
 
 class Student(models.Model):
-    regno = models.CharField(max_length=50, unique=True, db_column='regno')
+    regno = models.CharField(max_length=50, unique=True, db_column='regno', default='')
     name = models.CharField(max_length=100)
     email = models.EmailField(max_length=254)
-    phone = models.CharField(max_length=15, db_column='phone')
+    phone = models.CharField(max_length=15, db_column='phone', default='')
     degree = models.ForeignKey(Degree, related_name='students', on_delete=models.CASCADE)
-    department_id = models.CharField(max_length=50)
-    department_name = models.CharField(max_length=100)
-    degree_name = models.CharField(max_length=100)
-    start_year = models.IntegerField()
+    department_id = models.CharField(max_length=50, default='')
+    department_name = models.CharField(max_length=100, default='')
+    degree_name = models.CharField(max_length=100, default='')
+    start_year = models.IntegerField(default=2020)
     end_year = models.IntegerField()
     blood_group = models.CharField(max_length=10, blank=True)
 
@@ -273,7 +272,7 @@ class SuccessStory(models.Model):
     url = models.URLField(max_length=500, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(AdminUser, on_delete=models.CASCADE)
-    expires_at = models.DateTimeField()
+    expires_at = models.DateTimeField(default=default_expires_at)
 
     def save(self, *args, **kwargs):
         if not self.expires_at:
