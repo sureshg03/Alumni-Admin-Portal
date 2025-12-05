@@ -21,7 +21,7 @@ function ResetPassword({ email }) {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:8000/api/reset_password/", {
+      const res = await axios.post("/api/reset_password/", {
         email,
         password,
       });

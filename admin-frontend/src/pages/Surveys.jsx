@@ -8,7 +8,7 @@ import Sidebar from '../components/Sidebar';
 import { useNavigate } from 'react-router-dom';
 
 // Configure Axios base URL to point to Django backend
-axios.defaults.baseURL = 'http://localhost:8000/api'; // Update to match your Django backend URL
+axios.defaults.baseURL = '/api'; // Use relative path for Nginx proxy
 axios.defaults.withCredentials = true; // Ensure cookies (like CSRF) are sent with requests
 
 ChartJS.register(ArcElement, BarElement, LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend);

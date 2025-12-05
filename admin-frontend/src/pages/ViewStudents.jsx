@@ -36,7 +36,7 @@ const ViewStudents = () => {
 
     const fetchStudents = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/students/${degreeId}/`, {
+        const response = await axios.get(`/api/students/${degreeId}/`, {
           headers: {
             'Content-Type': 'application/json',
           },

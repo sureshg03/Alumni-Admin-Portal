@@ -11,7 +11,7 @@ function SetPassword() {
       alert("Passwords do not match");
       return;
     }
-    await axios.post("http://localhost:8000/api/set-password/", {
+    await axios.post("/api/set-password/", {
       email,
       password,
     });

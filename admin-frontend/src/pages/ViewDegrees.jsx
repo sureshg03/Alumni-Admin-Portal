@@ -20,7 +20,7 @@ const ViewDegrees = () => {
     // Fetch degrees from the backend
     const fetchDegrees = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/degrees/${departmentId}/`, {
+        const response = await axios.get(`/api/degrees/${departmentId}/`, {
           headers: {
             'Content-Type': 'application/json',
           },
