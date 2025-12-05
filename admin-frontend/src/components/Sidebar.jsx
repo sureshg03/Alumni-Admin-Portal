@@ -78,7 +78,10 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 w-64 bg-gradient-to-b from-sidebar-dark to-sidebar-light text-white p-4 flex flex-col shadow-2xl transform transition-transform duration-300 ease-in-out z-40
+        style={{
+          background: 'linear-gradient(to bottom, #1f003d, #3f0075)'
+        }}
+        className={`fixed inset-y-0 left-0 w-64 text-white p-4 flex flex-col shadow-2xl transform transition-transform duration-300 ease-in-out z-40
           ${isOpen ? "translate-x-0" : "-translate-x-full"} 
           md:translate-x-0 md:static md:w-72 md:rounded-r-2xl h-screen font-['Poppins'] overflow-auto`}
       >
