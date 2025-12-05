@@ -104,7 +104,7 @@ class Student(models.Model):
     department_name = models.CharField(max_length=100, default='')
     degree_name = models.CharField(max_length=100, default='')
     start_year = models.IntegerField(default=2020)
-    end_year = models.IntegerField()
+    end_year = models.IntegerField(default=2024)
     blood_group = models.CharField(max_length=10, blank=True)
 
     def __str__(self):
