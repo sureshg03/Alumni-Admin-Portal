@@ -200,7 +200,8 @@ const AddDepartment = () => {
             </button>
             <button
               onClick={handleRefresh}
-              className="flex items-center justify-center bg-gradient-to-r from-green-600 to-emerald-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full hover:from-green-700 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:ring-2 hover:ring-green-400 w-full sm:w-auto"
+              style={{ background: 'linear-gradient(to right, #16a34a, #059669)' }}
+              className="flex items-center justify-center text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full hover:opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl hover:ring-2 hover:ring-green-400 w-full sm:w-auto"
               disabled={isLoading}
               aria-label="Refresh departments"
             >

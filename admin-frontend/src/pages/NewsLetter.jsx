@@ -193,7 +193,8 @@ const Newsletter = () => {
               <div className="flex gap-3">
                 <button
                   onClick={fetchNewsletters}
-                  className="flex items-center gap-2 bg-purple-700 text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-800 transition-all text-sm shadow-md hover:shadow-lg"
+                  style={{ backgroundColor: '#7e22ce' }}
+                  className="flex items-center gap-2 text-white px-4 py-2 rounded-lg font-medium hover:opacity-90 transition-all text-sm shadow-md hover:shadow-lg"
                 >
                   <RefreshCw size={16} />
                   Refresh
